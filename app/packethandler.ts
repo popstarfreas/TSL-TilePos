@@ -1,10 +1,9 @@
-import PacketReader from "@popstarfreas/packetfactory/packetreader";
-import PacketWriter from "@popstarfreas/packetfactory/packetwriter";
 import PacketTypes from "terrariaserver-lite/packettypes";
 import TilePos from ".";
 import Client from "terrariaserver-lite/client";
 import GenericPacketHandler from "terrariaserver-lite/handlers/genericpackethandler";
 import Packet from "terrariaserver-lite/packet";
+import * as TileModify from "@darkgaming/rescript-terrariapacket/src/packet/Packet_TileModify.gen";
 
 class PacketHandler implements GenericPacketHandler {
     constructor(private tilePos: TilePos) { }
@@ -21,11 +20,13 @@ class PacketHandler implements GenericPacketHandler {
     }
 
     private handleModifyTile(client: Client, packet: Packet): boolean {
-        const reader = new PacketReader(packet.data);
-        reader.readByte();
+        const tileModify = TileModify.parse(packet.data);
+        if (typeof tileModify === "undefined") {
+            return false;
+        }
         const pos = {
-            x: reader.readInt16(),
-            y: reader.readInt16()
+            x: tileModify.tileX,
+            y: tileModify.tileY
         };
 
         if (this.tilePos.waitingTilePos.get(client)) {

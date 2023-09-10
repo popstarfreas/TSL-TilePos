@@ -14,6 +14,7 @@
     "@popstarfreas/packetfactory": "^5.0.0",
     "@types/node": "^12.0.1",
     "terrariaserver-lite": "./TerrariaServer-Lite/pluginreference",
+    "@darkgaming/rescript-terrariapacket": "github:popstarfreas/rescript-terrariapacket#3c76ed0",
     "typescript": "^4.2.3"
   },
   "devDependencies": {}
