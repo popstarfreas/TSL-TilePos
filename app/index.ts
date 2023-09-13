@@ -2,6 +2,7 @@ import Client from "terrariaserver-lite/client";
 import TerrariaServer from "terrariaserver-lite/terrariaserver";
 import Extension from "terrariaserver-lite/extensions/extension";
 import PacketHandler from "./packethandler";
+import TilePosCommand from "./commands/tilepos";
 
 class TilePos extends Extension {
     public name = "TilePos";
@@ -13,6 +14,7 @@ class TilePos extends Extension {
         super(server);
         this.loadCommands(__dirname);
         this.packetHandler = new PacketHandler(this);
+        this.addCommand(new TilePosCommand(this, this.server.commandHandler));
     }
 
     public handleClientDisconnect(client: Client): void {
