@@ -1,8 +1,8 @@
 import Client from "terrariaserver-lite/client";
 import TerrariaServer from "terrariaserver-lite/terrariaserver";
 import Extension from "terrariaserver-lite/extensions/extension";
-import PacketHandler from "./packethandler";
-import TilePosCommand from "./commands/tilepos";
+import PacketHandler from "./packethandler.js";
+import TilePosCommand from "./commands/tilepos/index.js";
 
 class TilePos extends Extension {
     public name = "TilePos";

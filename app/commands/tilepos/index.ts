@@ -1,4 +1,4 @@
-import TilePos from "../..";
+import TilePos from "../../index.js";
 import Client from "terrariaserver-lite/client";
 import Command from "terrariaserver-lite/command";
 import CommandHandler from "terrariaserver-lite/commandhandler";
