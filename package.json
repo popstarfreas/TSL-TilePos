@@ -1,11 +1,12 @@
 {
   "name": "tilepos",
+  "type": "module",
   "version": "0.1.0",
   "description": "",
   "scripts": {
     "start": "cd ./build && node --expose-gc ./app/index.js",
     "build": "tsc -p ./",
-    "build:packed": "tsc -p ./ && esbuild build/index.js --bundle --platform=node --outfile=output/index.js",
+    "build:packed": "tsc -p ./ && esbuild build/index.js --bundle --platform=node --outfile=output/index.mjs",
     "bstart": "tsc -p ./ && cd ./build && node --expose-gc ./app/index.js && cd ../",
     "bstart-debug": "tsc -p ./ && cd ./build && node-debug ./index.js && cd ../"
   },
