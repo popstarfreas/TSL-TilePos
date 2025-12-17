@@ -3,6 +3,10 @@ import TerrariaServer from "terrariaserver-lite/terrariaserver";
 import Extension from "terrariaserver-lite/extensions/extension";
 import PacketHandler from "./packethandler.js";
 import TilePosCommand from "./commands/tilepos/index.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 class TilePos extends Extension {
     public name = "TilePos";
